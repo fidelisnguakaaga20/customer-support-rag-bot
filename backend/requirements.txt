@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+transformers<5.0.0
+sentence-transformers
+faiss-cpu
+torch
+scikit-learn
+scipy
+numpy
+nltk
+sentencepiece
+python-dotenv
