@@ -14,10 +14,10 @@ No paid APIs, no cloud hosting — everything runs on my laptop.
 
 ## 🎥 Demo (Loom + YouTube)
 
-> Replace these with real links after recording your demo.
 
-- 🎥 Loom: `<LOOM_URL_HERE>`
-- 🎥 YouTube (Unlisted): `<YOUTUBE_URL_HERE>`
+- 🎥 Loom: https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d
+- 🎥 YouTube (Unlisted): https://youtu.be/AH-ZbUXaoGY
+
 
 The demo shows:
 
