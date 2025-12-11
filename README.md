@@ -1,28 +1,16 @@
-````md
-# Customer Support RAG Bot (Local, FastAPI + FAISS + Next.js)
-
-Customer Support AI that answers questions from a FAQ using **local models only**.
-
-This project fits into my **MASTER LLM ENGINEERING ROADMAP** as:
-
-- Month 2 → RAG + FastAPI + Next.js
-- Month 3 → Project 3: **Customer Support AI (UMA/Myaza style)**
-
-No paid APIs, no cloud hosting — everything runs on my laptop.
-
----
-
 ## 🎥 Demo (Loom + YouTube)
-
-- 🎥 Loom: https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d
-- 🎥 YouTube (Unlisted): https://youtu.be/AH-ZbUXaoGY
-
 
 - 🎥 **Loom:** [Watch on Loom](https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d)  
 - 🎥 **YouTube (Unlisted):** [Watch on YouTube](https://youtu.be/AH-ZbUXaoGY)
 
+---
 
-1. Backend starting: `uvicorn fastapi_support_rag_api:app --reload --port 8000`
+The demo shows:
+
+1. Backend starting:  
+   ```bash
+   uvicorn fastapi_support_rag_api:app --reload --port 8000
+
 2. Frontend running on `http://localhost:3000`
 3. Asking questions like:
    - “What is your refund policy?”
