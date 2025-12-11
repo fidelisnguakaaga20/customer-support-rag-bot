@@ -14,8 +14,14 @@ No paid APIs, no cloud hosting — everything runs on my laptop.
 
 ## 🎥 Demo (Loom + YouTube)
 
+- 🎥 Loom: https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d
+- 🎥 YouTube (Unlisted): https://youtu.be/AH-ZbUXaoGY
+
+
+## 🎥 Demo (Loom + YouTube)
+
 - 🎥 Loom: [Watch on Loom](https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d)
-- 🎥 YouTube (Unlisted): [Watch on YouTube]([https://youtu.be/O3s2rzXd53M](https://youtu.be/AH-ZbUXaoGY))
+- 🎥 YouTube (Unlisted): [Watch on YouTube](https://youtu.be/AH-ZbUXaoGY)
 
 
 The demo shows:
