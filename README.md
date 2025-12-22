@@ -1,193 +1,136 @@
-````md
-# Customer Support RAG Bot (Local, FastAPI + FAISS + Next.js)
+# Customer Support RAG Bot — Reliability-First (Local, FastAPI + FAISS)
 
-Customer Support AI that answers questions from a FAQ using **local models only**.
+Customer Support RAG API that answers questions from a company FAQ using **local models only**, with a **strict evidence-only policy**.
 
-This project fits into my **MASTER LLM ENGINEERING ROADMAP** as:
+This project is built to demonstrate **production-grade RAG reliability**:
+- No hallucinations
+- Null instead of guessing
+- Strict API contract
+- Validation gate
 
-- Month 2 → RAG + FastAPI + Next.js
-- Month 3 → Project 3: **Customer Support AI (UMA/Myaza style)**
-
-No paid APIs, no cloud hosting — everything runs on my laptop.
+No paid APIs. No cloud hosting. Runs fully on my laptop.
 
 ---
 
 ## 🎥 Demo (Loom + YouTube)
+🎥 ** code: https://github.com/fidelisnguakaaga20/customer-support-rag-bot
+- 🎥 **Loom:** https://www.loom.com/share/c9190d1c34054f3b84576e29ec832c67  
+- 🎥 **YouTube (Unlisted):** https://youtu.be/QnsbyYltVDo  
 
-
-- 🎥 Loom: https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d
-- 🎥 YouTube (Unlisted): https://youtu.be/AH-ZbUXaoGY
-
-
-The demo shows:
-
-1. Backend starting: `uvicorn fastapi_support_rag_api:app --reload --port 8000`
-2. Frontend running on `http://localhost:3000`
-3. Asking questions like:
-   - “What is your refund policy?”
-   - “How long does shipping take?”
-   - “Do you ship internationally?”
-4. Short architecture walkthrough: **Next.js → FastAPI → FAISS → local HF model**
+### Demo shows:
+1. Backend running locally
+2. Swagger UI (`/docs`) used to query the API
+3. A **valid FAQ question** returning an answer + sources + confidence
+4. An **unknown question** returning `answer: null`
+5. Explanation of the **evidence-only + validation gate**
 
 ---
 
 ## 🧠 What This Bot Does
 
-- Loads a small **FAQ text file** with support policies.
-- Splits it into chunks.
-- Embeds chunks with a **local DistilBERT encoder**.
-- Indexes them in **FAISS** (vector search).
+- Loads a **support FAQ text file**
+- Splits it into meaningful chunks
+- Embeds chunks using **DistilBERT (local)**
+- Indexes embeddings with **FAISS**
 - On each question:
-  - Finds the most relevant FAQ chunks.
-  - Builds a prompt with instructions + context.
-  - Uses **distilgpt2** locally to generate an answer.
-- Exposes a **FastAPI `/rag` endpoint**.
-- Provides a simple **Next.js chat UI** to talk to the bot.
+  - Retrieves relevant FAQ chunks
+  - Computes retrieval confidence
+  - **Generates an answer only if evidence exists**
+  - Rejects answers without quoted evidence
+- Exposes a **FastAPI `/rag` endpoint**
+- Always returns **strict JSON** (never free-form text)
 
-Everything is **CPU-only** and runs offline.
-
----
-
-## 🏗 Tech Stack
-
-**Backend**
-
-- Python 3.11+
-- FastAPI
-- Uvicorn
-- HuggingFace Transformers
-- sentence-transformers
-- DistilBERT for embeddings
-- DistilGPT-2 for generation
-- FAISS (faiss-cpu) for vector search
-
-**Frontend**
-
-- Next.js
-- TypeScript
-- React
-- Fetch-based client calling `POST /rag`
+Everything runs **CPU-only** and offline.
 
 ---
 
-## 📂 Project Structure
+## ✅ Reliability Guarantees (Core of This Project)
 
-```text
+The API enforces **four reliability layers**:
+
+1. **Strict JSON schema**
+   ```json
+   {
+     "answer": "string | null",
+     "sources": ["faq_chunk_0"],
+     "confidence": 0.0,
+     "reason": "string | null"
+   }
+Retrieval confidence gating
+
+If similarity is below threshold → no generation
+
+Evidence-only answers
+
+Generated answers must include verbatim quotes from retrieved context
+
+Validation gate
+
+If evidence is missing or malformed → forced rejection:
+
+json
+Copy code
+{
+  "answer": null,
+  "confidence": 0.0,
+  "reason": "No quoted evidence found"
+}
+This guarantees the system never hallucinates.
+
+🚀 How to Run (Local Only)
+Backend (FastAPI + FAISS + local HF models)
+bash
+Copy code
+cd backend
+python -m pip install -r requirements.txt
+python -m uvicorn fastapi_support_rag_api:app --reload
+Backend runs at:
+
+cpp
+Copy code
+http://127.0.0.1:8000
+Swagger UI:
+
+arduino
+Copy code
+http://127.0.0.1:8000/docs
+Test via Swagger or curl
+Known FAQ question
+
+bash
+Copy code
+curl -s -X POST "http://127.0.0.1:8000/rag" \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"What is your refund policy?\"}" | python -m json.tool
+Unknown question (hallucination blocked)
+
+bash
+Copy code
+curl -s -X POST "http://127.0.0.1:8000/rag" \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"How do I integrate Stripe webhooks with your product?\"}" | python -m json.tool
+📂 Proof Pack (Reliability Evidence)
+pgsql
+Copy code
+backend/examples/
+├── valid/
+│   └── refund_policy.json
+└── rejected/
+    └── stripe_webhooks.json
+These files document expected behavior for accepted vs rejected queries.
+
+🗂 Project Structure
+text
+Copy code
 customer-support-rag/
   backend/
     data/
       support_faq.txt
+    examples/
+      valid/
+      rejected/
     fastapi_support_rag_api.py
     requirements.txt
-    .venv/            # local, ignored by git
 
-  frontend/
-    app/
-      page.tsx        # chat UI
-    package.json
-    tsconfig.json
-    next.config.mjs
-    ...
-
-  .gitignore
-  README.md           # this file
-  file-tree.txt
-  README.md roadmap   # high-level roadmap notes
-````
-
----
-
-## 🚀 How to Run (Local Only)
-
-### 1. Backend (FastAPI + FAISS + local HF models)
-
-```bash
-cd backend
-python -m venv .venv
-source .venv/Scripts/activate    # on Windows Git Bash
-
-pip install -r requirements.txt
-
-uvicorn fastapi_support_rag_api:app --reload --port 8000
-```
-
-You should see logs like:
-
-* `Loading embedding model: distilbert-base-uncased`
-* `FAISS index built over X FAQ chunks`
-* `Uvicorn running on http://127.0.0.1:8000`
-
-### 2. Frontend (Next.js chat UI)
-
-In another terminal:
-
-```bash
-cd frontend
-npm install      # first time only
-npm run dev
-```
-
-Open:
-
-* `http://localhost:3000`
-
-Ask:
-
-* `What is your refund policy?`
-* `How long does shipping take?`
-* `Do you ship internationally?`
-
----
-
-## 📝 FAQ Data Source
-
-The FAQ lives in:
-
-```text
-backend/data/support_faq.txt
-```
-
-Example content:
-
-```text
-Our refund policy: Customers can request a refund within 30 days of purchase.
-
-Shipping usually takes between 3 and 5 business days.
-
-If a product is damaged, we will send a replacement free of charge.
-
-We do not ship internationally at this time.
-```
-
-To adapt this bot to another company, you only need to:
-
-1. Edit `support_faq.txt`
-2. Restart the backend
-
-No code changes required.
-
----
-
-## 🔗 How This Fits My LLM Roadmap
-
-This project demonstrates:
-
-* RAG over domain-specific text (support FAQ)
-* Local embeddings + vector search (FAISS)
-* Local generation (distilgpt2)
-* FastAPI as LLM backend
-* Next.js + TypeScript frontend integration
-
-In my 3-month LLM engineering roadmap, this is:
-
-* **Month 2 – Week 5–8**: RAG + FastAPI + Next.js (Customer Support AI)
-* **Month 3 – Project 3** in the “10 Portfolio Projects” list.
-
-Other completed projects in the same roadmap:
-
-1. Embedding Search Engine (Chroma + SentenceTransformers)
-2. Resume RAG Chatbot (PDF resume + RAG + FastAPI + Next.js)
-3. ✅ Customer Support RAG Bot (this project)
-
-```
-```
+  frontend/          # optional UI (not required for reliability demo)
+  README.
