@@ -1,0 +1,9 @@
+{
+  "input": { "question": "How do I integrate Stripe webhooks with your product?" },
+  "expected": {
+    "answer": null,
+    "sources": [],
+    "confidence": 0.0,
+    "reason": "No quoted evidence found"
+  }
+}

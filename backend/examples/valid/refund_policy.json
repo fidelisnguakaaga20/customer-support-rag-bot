@@ -1,0 +1,9 @@
+{
+  "input": { "question": "What is your refund policy?" },
+  "expected": {
+    "answer": "string (not null)",
+    "sources": ["faq_chunk_0"],
+    "confidence": ">= 0.72",
+    "reason": null
+  }
+}
