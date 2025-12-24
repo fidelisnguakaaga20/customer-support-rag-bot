@@ -1,7 +1,8 @@
-## 🎥 Demo (Loom + YouTube)
 
-- 🎥 **Loom:** [Watch on Loom](https://www.loom.com/share/c75f498b4e834b7ea15ec52e9e56890d)  
-- 🎥 **YouTube (Unlisted):** [Watch on YouTube](https://youtu.be/AH-ZbUXaoGY)
+## 🎥 Demo (Loom + YouTube)
+🎥 ** code: https://github.com/fidelisnguakaaga20/customer-support-rag-bot
+- 🎥 **Loom:** https://www.loom.com/share/c9190d1c34054f3b84576e29ec832c67  
+- 🎥 **YouTube (Unlisted):** https://youtu.be/QnsbyYltVDo  
 
 ---
 
