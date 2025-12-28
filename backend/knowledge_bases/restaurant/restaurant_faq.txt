@@ -1,0 +1,109 @@
+HEALTHY FAMILY RESTAURANT — WHATSAPP CUSTOMER SUPPORT FAQ
+Version: 1.0
+Location: Abuja, Nigeria
+
+PURPOSE
+- This document is the single source of truth for answering customers on WhatsApp.
+- Replies must be short, polite, and business-ready.
+- The assistant must answer strictly from this document.
+- If information is missing, the assistant must refuse politely and ask for clarification.
+- The assistant must NEVER guess prices, availability, delivery areas, or payment terms.
+
+SERVICE TYPES
+- Dine-in: Available
+- Takeaway: Available
+- Delivery: Available (Abuja only)
+
+OPENING HOURS
+- Monday – Saturday: 12:00 PM – 8:00 PM
+- Sunday: 1:00 PM – 7:00 PM
+- Orders are not accepted outside these hours.
+
+MENU RULE (STRICT — NO INVENTION)
+- Only the menu items listed below are available.
+- If a food item is not listed here, it is NOT available.
+- The assistant must never invent menu items.
+
+MENU
+- Jollof Rice
+- Fried Rice
+- White Rice & Stew
+- Pounded Yam & Egusi Soup
+- Amala & Ewedu
+- Grilled Chicken
+- Fried Chicken
+- Turkey
+- Beef
+- Fish
+- Moi Moi
+- Fried Plantain
+- Shawarma
+- Bottled Water
+- Soft Drinks
+
+PRICING (NO GUESSING — EVER)
+- Food prices change regularly.
+- The assistant must NEVER guess prices.
+- If a customer asks for price, ask for the exact item + quantity and confirm the current price.
+
+AVAILABILITY
+- Food availability depends on stock and time.
+- If availability is uncertain, the assistant must confirm before promising.
+
+DELIVERY RULES (ABUJA ONLY)
+- Delivery is available ONLY within Abuja.
+- The assistant must refuse delivery requests outside Abuja.
+- Delivery fee depends on the customer’s location in Abuja.
+- Same-day delivery depends on order time and availability.
+- Always ask for:
+  - Delivery location (area/landmark)
+  - Item(s) and quantity
+  - Preferred delivery time
+
+PAYMENT METHODS
+- Bank Transfer
+- POS Payment
+- Cash on Delivery is NOT accepted.
+- Payment must be confirmed before delivery.
+
+ORDER CHANGES & CANCELLATIONS
+- Orders can only be changed or cancelled before preparation starts.
+- If preparation has started, cancellation may not be possible.
+
+HEALTH & SAFETY
+- Food is prepared fresh.
+
+SPECIAL DIETARY REQUESTS
+- Special dietary or allergy requests require manual confirmation.
+- Please share the exact request and we will confirm what we can accommodate.
+
+WHATSAPP QUICK FAQ (FOR RETRIEVAL)
+Q: Are you open now?
+A: Our opening hours are Monday – Saturday: 12:00 PM – 8:00 PM, and Sunday: 1:00 PM – 7:00 PM. Orders are not accepted outside these hours.
+
+Q: What time do you close?
+A: We close at 8:00 PM (Mon–Sat) and 7:00 PM (Sun).
+
+Q: Do you deliver?
+A: Yes, we deliver within Abuja only. Delivery fee depends on your Abuja location.
+
+Q: Do you deliver to Gwarinpa?
+A: Yes, we deliver within Abuja. Please share your exact area/landmark in Gwarinpa and what you’d like to order (item + quantity), and your preferred delivery time.
+
+Q: Do you deliver to Lagos?
+A: Sorry, we currently deliver within Abuja only.
+
+Q: Can I pay on delivery?
+A: We don’t accept cash on delivery. You can pay via Bank Transfer or POS payment, and we’ll confirm before delivery.
+
+Q: Is chicken available?
+A: Availability depends on stock and time. Please tell us the exact chicken option (grilled or fried) and quantity, and we’ll confirm availability.
+
+Q: Can I cancel my order?
+A: Orders can only be changed or cancelled before preparation starts. Please share your order details so we can confirm the current status.
+
+Q: Do you handle special diets?
+A: Yes — special dietary or allergy requests require manual confirmation. Please share the exact request (and the item), and we’ll confirm what we can accommodate.
+
+Q: How much is jollof rice?
+A: Prices change regularly, so please tell us the item + quantity and we’ll confirm the current price.
